@@ -2,39 +2,31 @@
 <html lang="en" dir="ltr"> 
   <head> 
     <meta charset="utf-8"> 
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script>
-      function likeNews(newsId) {
-        var likesCount = document.getElementById('likesCount_' + newsId);
-        likesCount.innerHTML++;
-      }
-
-      function dislikeNews(newsId) {
-        var dislikesCount = document.getElementById('dislikesCount_' + newsId);
-        dislikesCount.innerHTML++;
-      }
-    </script>
+    <title></title> 
+  
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
   </head> 
-  <body>
+  <body> 
     <div class="jumbotron" style="color:black"> 
-      <h1 style="color:white"> 
-        Get The latest news on our website 
+  
+      <h1 style ="color:white"> 
+   Get The latest news on our website 
       </h1> 
+  
     </div> 
-
+  
+  
     <div class="container"> 
       {% for new, des, i in mylist %} 
-        <img src="{{ i }}" alt=""> 
-        <h1>News:</h1> {{ new }} 
-        {{ value|linebreaks }} 
-        <h4>Description:</h4>{{ des }} 
-        {{ value|linebreaks }} 
-        <button onclick="likeNews('{{ loop.index }}')">Like</button>
-        <span id="likesCount_{{ loop.index }}">0</span>
-        <button onclick="dislikeNews('{{ loop.index }}')">Dislike</button>
-        <span id="dislikesCount_{{ loop.index }}">0</span>
+              <img src="{{ i }}" alt=""> 
+              <h1>news:</h1> {{ new }} 
+              {{ value|linebreaks }} 
+  
+              <h4>description:</h4>{{ des }} 
+              {{ value|linebreaks }} 
+  
       {% endfor %} 
     </div> 
+  
   </body> 
-</html>
+</html> 
