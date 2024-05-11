@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from newsapi import NewsApiClient
-
+from .models import News
 
 def index(request):
 
@@ -20,3 +20,17 @@ def index(request):
     mylist = zip(news, desc, img)
 
     return render(request, 'newsapp/index.html', context={"mylist": mylist})
+
+def news_detail(request, news_id):
+    news = get_object_or_404(News, pk=news_id)
+
+    news.views_count += 1
+
+    if request.method == 'POST':
+        if 'like' in request.POST:
+            news.likes_count += 1
+    elif request.method == 'POST':
+        if 'dislike' in request.POST:
+            news.dislikes_count += 1
+
+    news.save()

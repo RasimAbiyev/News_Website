@@ -15,8 +15,6 @@
       </h1> 
   
     </div> 
-  
-  
     <div class="container"> 
       {% for new, des, i in mylist %} 
               <img src="{{ i }}" alt=""> 
@@ -25,9 +23,11 @@
   
               <h4>description:</h4>{{ des }} 
               {{ value|linebreaks }} 
-  
+              <div>
+                <button type="button" class="like-btn">Like</button>
+                <button type="button" class="dislike-btn">Dislike</button>
+              </div>
       {% endfor %} 
-    </div> 
-  
-  </body> 
+    </div>
+    </body> 
 </html> 

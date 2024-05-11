@@ -1,0 +1,19 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ news.title }}</title>
+</head>
+<body>
+    <h1>{{ news.title }}</h1>
+    <p>{{ news.body }}</p>
+    <p>{{ news.views_count }}</p>
+    <p>{{ news.likes_count }}</p>
+    <p>{{ news.dislikes_count }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="button" name="like">Like</button>
+        <button type="button" name="dislike">Dislike</button>
+    </form>
+</body>
+</html> 
